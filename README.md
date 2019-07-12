@@ -4,7 +4,6 @@
 This sample Swift app and its collection of tutorials is designed to help you quickly and easily onboard to App Center for iOS.
 
 ```
-[![Build status](https://build.appcenter.ms/v0.1/apps/33ea0918-f260-46ae-9cdf-9d22d6f1d2f7/branches/master/badge)](https://appcenter.ms)
 ```
 
 ## This repository
