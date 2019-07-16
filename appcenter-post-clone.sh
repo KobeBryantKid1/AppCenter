@@ -7,6 +7,8 @@ echo "**************************************************************************
 /usr/bin/security cms -D -i $APPCENTER_SOURCE_DIRECTORY"/wildcard_dev_profile.mobileprovision" > tmp.plist
 uuid=`/usr/libexec/PlistBuddy -c 'Print:UUID' tmp.plist`
 echo "$uuid"
+echo "${APPCENTER_SOURCE_DIRECTORY}/wildcard_dev_profile.mobileprovision"
+echo "/Users/vsts/Library/MobileDevice/Provisioning Profiles/${uuid}.mobileprovision"
 cp -f $APPCENTER_SOURCE_DIRECTORY"/wildcard_dev_profile.mobileprovision" "/Users/vsts/Library/MobileDevice/Provisioning Profiles/"$uuid".mobileprovision"
 rm -rf tmp.plist
 
