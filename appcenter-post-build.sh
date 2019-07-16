@@ -4,6 +4,18 @@
 
 set -e # Exit immediately if a command exits with a non-zero status (failure)
 
+function read_dir(){
+for file in `ls $1`
+do
+    if [ -d $1"/"$file ]
+    then
+        read_dir $1"/"$file
+    else
+        echo $1"/"$file
+    fi
+done
+}
+
 echo "**************************************************************************************************"
 echo "Post Build Script"
 echo "**************************************************************************************************"
@@ -25,6 +37,7 @@ echo " Device Set: $deviceSetName"
 echo "Test Series: $testSeriesName"
 
 echo "> Build for test"
+read_dir $APPCENTER_SOURCE_DIRECTORY
 #rm -rf DerivedData
 #xcrun xcodebuild build-for-testing -configuration Release -workspace sampleapp-ios-swift.xcworkspace -sdk iphoneos -scheme sampleapp-ios-swift -derivedDataPath DerivedData
 
@@ -35,3 +48,4 @@ appcenter test run xcuitest --app $appName --devices $deviceSetName --app-path $
 echo "**************************************************************************************************"
 echo "Post Build Script complete"
 echo "**************************************************************************************************"
+
