@@ -27,7 +27,7 @@ echo ""
 
 echo "> Run UI test command"
 # Note: must put a space after each parameter/value pair
-appcenter test run xcuitest --app $appName --devices $deviceSetName --app-path $APPCENTER_OUTPUT_DIRECTORY/sampleapp-ios-swift.ipa --test-series $testSeriesName --locale "en_US" --token $appCenterLoginApiToken 
+appcenter test run xcuitest --app $appName --devices $deviceSetName --test-ipa-path $APPCENTER_OUTPUT_DIRECTORY/sampleapp-ios-swift.ipa --test-series $testSeriesName --locale "en_US" --token $appCenterLoginApiToken 
 
 echo "**************************************************************************************************"
 echo "Post Build Script complete"
