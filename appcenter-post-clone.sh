@@ -4,6 +4,18 @@ echo "**************************************************************************
 echo "Post Clone Script"
 echo "**************************************************************************************************"
 
+function read_dir(){
+for file in `ls $1`
+do
+    if [ -d $1"/"$file ]
+    then
+        read_dir $1"/"$file
+    else
+        echo $1"/"$file
+    fi
+done
+}
+
 /usr/bin/security cms -D -i $APPCENTER_SOURCE_DIRECTORY"/wildcard_dev_profile.mobileprovision" > tmp.plist
 uuid=`/usr/libexec/PlistBuddy -c 'Print:UUID' tmp.plist`
 echo "$uuid"
@@ -11,6 +23,8 @@ echo "${APPCENTER_SOURCE_DIRECTORY}/wildcard_dev_profile.mobileprovision"
 echo "/Users/vsts/Library/MobileDevice/Provisioning Profiles/${uuid}.mobileprovision"
 cp -f $APPCENTER_SOURCE_DIRECTORY"/wildcard_dev_profile.mobileprovision" "/Users/vsts/Library/MobileDevice/Provisioning Profiles/"$uuid".mobileprovision"
 rm -rf tmp.plist
+echo "check profiles"
+read_dir /Users/vsts/Library/MobileDevice/Provisioning Profiles
 
 echo "**************************************************************************************************"
 echo "Post Clone Script complete"
