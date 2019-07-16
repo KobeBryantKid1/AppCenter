@@ -23,11 +23,20 @@ echo "Start XCUITest run"
 echo "   App Name: $appName"
 echo " Device Set: $deviceSetName"
 echo "Test Series: $testSeriesName"
-echo ""
+
+echo "> Build for test"
+rm -rf DerivedData
+xcrun xcodebuild build-for-testing -configuration Release -workspace sampleapp-ios-swift.xcworkspace -sdk iphoneos -scheme sampleapp-ios-swift -derivedDataPath DerivedData
 
 echo "> Run UI test command"
 # Note: must put a space after each parameter/value pair
-appcenter test run xcuitest --app $appName --devices $deviceSetName --test-ipa-path $APPCENTER_OUTPUT_DIRECTORY/sampleapp-ios-swift.ipa --test-series $testSeriesName --locale "en_US" --token $appCenterLoginApiToken 
+appcenter test run xcuitest --app $appName --devices $deviceSetName --app-path $APPCENTER_OUTPUT_DIRECTORY/sampleapp-ios-swift.ipa --test-series $testSeriesName --locale "en_US" --build-dir $APPCENTER_SOURCE_DIRECTORY/DerivedData/Build/Products/Release-iphoneos --token $appCenterLoginApiToken 
+
+echo ""
+echo "**************************************************************************************************"
+echo "Post Build Script complete"
+echo "**************************************************************************************************"
+
 
 echo "**************************************************************************************************"
 echo "Post Build Script complete"
