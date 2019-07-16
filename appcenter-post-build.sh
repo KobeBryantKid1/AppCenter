@@ -25,8 +25,8 @@ echo " Device Set: $deviceSetName"
 echo "Test Series: $testSeriesName"
 
 echo "> Build for test"
-rm -rf DerivedData
-xcrun xcodebuild build-for-testing -configuration Release -workspace sampleapp-ios-swift.xcworkspace -sdk iphoneos -scheme sampleapp-ios-swift -derivedDataPath DerivedData
+#rm -rf DerivedData
+#xcrun xcodebuild build-for-testing -configuration Release -workspace sampleapp-ios-swift.xcworkspace -sdk iphoneos -scheme sampleapp-ios-swift -derivedDataPath DerivedData
 
 echo "> Run UI test command"
 # Note: must put a space after each parameter/value pair
