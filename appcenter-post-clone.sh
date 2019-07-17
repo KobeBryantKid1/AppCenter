@@ -23,8 +23,9 @@ echo "$uuid"
 echo "${APPCENTER_SOURCE_DIRECTORY}/wildcard_dev_profile.mobileprovision"
 echo "~/Library/MobileDevice/Provisioning Profiles/$uuid.mobileprovision"
 echo "test"
-mv ${APPCENTER_SOURCE_DIRECTORY}/wildcard_dev_profile.mobileprovision ${APPCENTER_SOURCE_DIRECTORY}/${uuid}.mobileprovision
-cp "${APPCENTER_SOURCE_DIRECTORY}/${uuid}.mobileprovision" "/Users/vsts/Library/MobileDevice/Provisioning\ Profiles/"
+pwd
+mv wildcard_dev_profile.mobileprovision ${uuid}.mobileprovision
+cp ${uuid}.mobileprovision /Users/vsts/Library/MobileDevice/Provisioning\ Profiles/
 rm -rf tmp.plist
 echo "check profiles"
 ls /Users/vsts/Library/MobileDevice/Provisioning\ Profiles/
