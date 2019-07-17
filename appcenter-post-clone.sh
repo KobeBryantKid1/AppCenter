@@ -20,16 +20,16 @@ done
 uuid=`/usr/libexec/PlistBuddy -c 'Print:UUID' tmp.plist`
 echo "$uuid"
 echo "${APPCENTER_SOURCE_DIRECTORY}/wildcard_dev_profile.mobileprovision"
-echo "/Users/vsts/Library/MobileDevice/Provisioning Profiles/${uuid}.mobileprovision"
-for file in `ls /Users/vsts/Library/MobileDevice/Provisioning\ Profiles/`
+echo "~/Library/MobileDevice/Provisioning Profiles/$uuid.mobileprovision"
+for file in `ls ~/Library/MobileDevice/Provisioning Profiles/`
 do
     echo $file
 done
 echo "test"
-cp -f $APPCENTER_SOURCE_DIRECTORY"/wildcard_dev_profile.mobileprovision" "/Users/vsts/Library/MobileDevice/Provisioning\ Profiles/"$uuid".mobileprovision"
+cp "${APPCENTER_SOURCE_DIRECTORY}/wildcard_dev_profile.mobileprovision" "~/Library/MobileDevice/Provisioning Profiles/$uuid.mobileprovision"
 rm -rf tmp.plist
 echo "check profiles"
-for file in `ls /Users/vsts/Library/MobileDevice/Provisioning\ Profiles/`
+for file in `ls ls ~/Library/MobileDevice/Provisioning Profiles/`
 do
     echo $file
 done
