@@ -22,7 +22,7 @@ ls /Users/vsts/Library/MobileDevice/Provisioning\ Profiles/
 echo "$uuid"
 echo "${APPCENTER_SOURCE_DIRECTORY}/wildcard_dev_profile.mobileprovision"
 echo "~/Library/MobileDevice/Provisioning Profiles/$uuid.mobileprovision"
-for file in `ls ~/Library/MobileDevice/Provisioning\ Profiles/`
+for file in `ls /Users/vsts/Library/MobileDevice/Provisioning\ Profiles/`
 do
     echo $file
 done
