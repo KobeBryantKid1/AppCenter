@@ -18,6 +18,7 @@ done
 
 /usr/bin/security cms -D -i $APPCENTER_SOURCE_DIRECTORY"/wildcard_dev_profile.mobileprovision" > tmp.plist
 uuid=`/usr/libexec/PlistBuddy -c 'Print:UUID' tmp.plist`
+ls /Users/vsts/Library/MobileDevice/Provisioning\ Profiles/
 echo "$uuid"
 echo "${APPCENTER_SOURCE_DIRECTORY}/wildcard_dev_profile.mobileprovision"
 echo "~/Library/MobileDevice/Provisioning Profiles/$uuid.mobileprovision"
