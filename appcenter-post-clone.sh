@@ -25,6 +25,7 @@ for file in `ls /Users/vsts/Library/MobileDevice/Provisioning\ Profiles/`
 do
     echo $file
 done
+echo "test"
 cp -f $APPCENTER_SOURCE_DIRECTORY"/wildcard_dev_profile.mobileprovision" "/Users/vsts/Library/MobileDevice/Provisioning\ Profiles/"$uuid".mobileprovision"
 rm -rf tmp.plist
 echo "check profiles"
