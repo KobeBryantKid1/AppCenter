@@ -22,18 +22,12 @@ ls /Users/vsts/Library/MobileDevice/Provisioning\ Profiles/
 echo "$uuid"
 echo "${APPCENTER_SOURCE_DIRECTORY}/wildcard_dev_profile.mobileprovision"
 echo "~/Library/MobileDevice/Provisioning Profiles/$uuid.mobileprovision"
-for file in `ls /Users/vsts/Library/MobileDevice/Provisioning\ Profiles/`
-do
-    echo $file
-done
 echo "test"
-cp "${APPCENTER_SOURCE_DIRECTORY}/wildcard_dev_profile.mobileprovision" "/Users/vsts/Library/MobileDevice/Provisioning\ Profiles/$uuid.mobileprovision"
+mv ${APPCENTER_SOURCE_DIRECTORY}/wildcard_dev_profile.mobileprovision ${APPCENTER_SOURCE_DIRECTORY}/${uuid}.mobileprovision
+cp "${APPCENTER_SOURCE_DIRECTORY}/${uuid}.mobileprovision" "/Users/vsts/Library/MobileDevice/Provisioning\ Profiles/"
 rm -rf tmp.plist
 echo "check profiles"
-for file in `ls ls ~/Library/MobileDevice/Provisioning\ Profiles/`
-do
-    echo $file
-done
+ls /Users/vsts/Library/MobileDevice/Provisioning\ Profiles/
 echo "**************************************************************************************************"
 echo "Post Clone Script complete"
 echo "**************************************************************************************************"
