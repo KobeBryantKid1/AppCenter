@@ -39,7 +39,7 @@ echo "Test Series: $testSeriesName"
 echo "> Build for test"
 read_dir $APPCENTER_SOURCE_DIRECTORY
 rm -rf DerivedData
-xcrun xcodebuild build-for-testing -configuration Release -workspace sampleapp-ios-swift.xcworkspace -sdk iphoneos -scheme sampleapp-ios-swift -derivedDataPath DerivedData
+xcrun xcodebuild build-for-testing -configuration Debug -workspace sampleapp-ios-swift.xcworkspace -sdk iphoneos -scheme sampleapp-ios-swift -derivedDataPath DerivedData
 
 echo "> Run UI test command"
 # Note: must put a space after each parameter/value pair
