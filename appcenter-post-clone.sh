@@ -17,21 +17,21 @@ done
 }
 
 echo "> Install Certificate"
-security create-keychain -p 0.usiz1ez3f9dbt8c9m0bdcmcxr ios_signing_temp.keychain
-security set-keychain-settings -lut 7200 ios_signing_temp.keychain
-security unlock-keychain -p 0.usiz1ez3f9dbt8c9m0bdcmcxr ios_signing_temp.keychain
-security import developer.p12 -P admin123 -A -t cert -f pkcs12 -k ios_signing_temp.keychain
+security create-keychain -p 0.usiz1ez3f9dbt8c9m0bdcmcxr /Users/vsts/agent/2.154.1/work/_temp/ios_signing_temp.keychain
+security set-keychain-settings -lut 7200 /Users/vsts/agent/2.154.1/work/_temp/ios_signing_temp.keychain
+security unlock-keychain -p 0.usiz1ez3f9dbt8c9m0bdcmcxr /Users/vsts/agent/2.154.1/work/_temp/ios_signing_temp.keychain
+security import development_cert.p12 -P admin123 -A -t cert -f pkcs12 -k /Users/vsts/agent/2.154.1/work/_temp/ios_signing_temp.keychain
 
 echo "> Install Provisioning Profile"
-/usr/bin/security cms -D -i $APPCENTER_SOURCE_DIRECTORY"/wildcard_dev_profile.mobileprovision" > tmp.plist
+/usr/bin/security cms -D -i $APPCENTER_SOURCE_DIRECTORY"/wildcard_development_profile.mobileprovision" > tmp.plist
 uuid=`/usr/libexec/PlistBuddy -c 'Print:UUID' tmp.plist`
 ls /Users/vsts/Library/MobileDevice/Provisioning\ Profiles/
 echo "$uuid"
-echo "${APPCENTER_SOURCE_DIRECTORY}/wildcard_dev_profile.mobileprovision"
+echo "${APPCENTER_SOURCE_DIRECTORY}/wildcard_development_profile.mobileprovision"
 echo "~/Library/MobileDevice/Provisioning Profiles/$uuid.mobileprovision"
 echo "test"
 pwd
-mv wildcard_dev_profile.mobileprovision ${uuid}.mobileprovision
+mv wildcard_development_profile.mobileprovision ${uuid}.mobileprovision
 cp ${uuid}.mobileprovision /Users/vsts/Library/MobileDevice/Provisioning\ Profiles/
 rm -rf tmp.plist
 echo "check profiles"
