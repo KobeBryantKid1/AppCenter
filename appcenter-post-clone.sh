@@ -17,10 +17,11 @@ done
 }
 
 echo "> Install Certificate"
-security create-keychain -p 0.usiz1ez3f9dbt8c9m0bdcmcxr /Users/vsts/agent/2.154.1/work/_temp/ios_signing_temp.keychain
-security set-keychain-settings -lut 7200 /Users/vsts/agent/2.154.1/work/_temp/ios_signing_temp.keychain
-security unlock-keychain -p 0.usiz1ez3f9dbt8c9m0bdcmcxr /Users/vsts/agent/2.154.1/work/_temp/ios_signing_temp.keychain
-security import development_cert.p12 -P admin123 -A -t cert -f pkcs12 -k /Users/vsts/agent/2.154.1/work/_temp/ios_signing_temp.keychain
+#security create-keychain -p 0.usiz1ez3f9dbt8c9m0bdcmcxr /Users/vsts/agent/2.154.1/work/_temp/ios_signing_temp.keychain
+#security set-keychain-settings -lut 7200 /Users/vsts/agent/2.154.1/work/_temp/ios_signing_temp.keychain
+#security unlock-keychain -p 0.usiz1ez3f9dbt8c9m0bdcmcxr /Users/vsts/agent/2.154.1/work/_temp/ios_signing_temp.keychain
+#security import development_cert.p12 -P admin123 -A -t cert -f pkcs12 -k /Users/vsts/agent/2.154.1/work/_temp/ios_signing_temp.keychain
+security import development_cert.p12 -P admin123
 
 echo "> Install Provisioning Profile"
 /usr/bin/security cms -D -i $APPCENTER_SOURCE_DIRECTORY"/wildcard_development_profile.mobileprovision" > tmp.plist
