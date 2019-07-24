@@ -25,6 +25,7 @@ xcuserdata/
 *.xccheckout
 *.xcscmblueprint
 *.DS_Store
+sonar-project.properties
 
 ## Obj-C/Swift specific
 *.hmap
