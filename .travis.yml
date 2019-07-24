@@ -1,5 +1,8 @@
-language:swift
-osx_image:xcode10
+language: swift
+osx_image: xcode10.2
+xcode_workspace: sampleapp-ios-swift.xcworkspace
+xcode_scheme: sampleapp-ios-swift
+xcode_destination: platform=iOS Simulator,OS=11.3,name=iPhone X
 
 addons:
   sonarcloud:
