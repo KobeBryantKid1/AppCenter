@@ -1,0 +1,11 @@
+language:swift
+osx_image:xcode10
+
+addons:
+  sonarcloud:
+    organization: "kobebryantkid1" # the key of the org you chose at step #3
+    token:
+      secure: "Pzfo/wzdjW63iLvdkCGSL5dif9N/bk0lpq7Fd84v9bMumGatfuw2krUd4PiwUbGRrYb9dINvF3tWoBzY8SxyFtwJYjiRjrBQjY3DiolXmUsB2E5OM2XFCyH7fvIDDmweCJE/GI9e+ASzCjS0itnGLOFRJHdY/T4L/g/rNYdNxL0X13LF52iOf53bdM0XCSaiu9NYiCu/X0dSd9A1awLS0lsK52ac3VOjWgHSW/JGEA/Am0B1AcTO4A2PPqAFOXf/UPRORv16a9NsaJwJWbIsCU4Dhiz9GBjsGzR7rnQnujo7savM6/OMUgliR1oMnIrHw5muyjE7mJsHSttzzq7zpea2P4APMczzxhlQvJDB7qnrtXt46AioFH+17LMChvseKdKrL6GJhvq4sM/c1LAQQ94KRZlRfwPh4CZp9M5ouz5vEl++2rOocqpEf17sYgSvEAKz8JhonLKi8gJIxb/Vky+l2p9t52AlWaC1Cx3Lz/ZgH380s15wNv8xkpqOAaClC/5fUeU+sAn5FO+tdSrmgK5CKk6E28+uym1rSC0Rg0DlcMZgEvVt6XbwvnN4ZST8xSlK+zEsuPcc1uuspJG0Uutv+QBf8KSd+yYzrKV7wNWojKlSkxjakmgMqSPV+i2q9nr3FKawfx4nVIHbVZrN+K9Zz77mhGcCzLq0nAveQcA="
+script:
+  # other script steps might be done before running the actual analysis
+  - sonar-scanner
