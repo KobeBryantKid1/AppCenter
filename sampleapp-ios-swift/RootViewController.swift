@@ -75,4 +75,13 @@ class RootViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     func presentationIndex(for _: UIPageViewController) -> Int {
         return 0
     }
+    
+    func test(value:Int) {
+        switch value {
+        case 0:
+            print("option 1")
+        default:
+            print("option 2")
+        }
+    }
 }
